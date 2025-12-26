@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Masanja Gospel Melody</title>
+
+<style>
+:root{
+  --primary:#0d47a1;
+  --secondary:#1976d2;
+  --accent:#ffd700;
+  --bg:#f4f6f8;
+  --card:#ffffff;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:var(--bg);
+  color:#333;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  color:white;
+  padding:18px;
+  text-align:center;
+  font-size:22px;
+  font-weight:bold;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+/* CONTAINER */
+.screen{
+  display:none;
+  padding:20px;
+  animation:slideIn .4s ease;
+}
+.active{display:block;}
+
+@keyframes slideIn{
+  from{opacity:0; transform:translateX(40px);}
+  to{opacity:1; transform:translateX(0);}
+}
+
+/* MENU BUTTONS */
+.menu-btn{
+  width:100%;
+  padding:18px;
+  margin:12px 0;
+  font-size:18px;
+  border:none;
+  border-radius:14px;
+  background:var(--card);
+  box-shadow:0 8px 20px rgba(0,0,0,0.12);
+  text-align:left;
+  display:flex;
+  align-items:center;
+  gap:15px;
+  cursor:pointer;
+  transition:.25s;
+}
+.menu-btn:hover{
+  transform:scale(1.03);
+  background:#eef4ff;
+}
+.icon{
+  font-size:26px;
+}
+
+/* CARDS */
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.1);
+  margin-bottom:20px;
+}
+
+/* ACTION BUTTON */
+.action{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(135deg,var(--secondary),var(--primary));
+  color:white;
+  font-size:17px;
+  margin-top:12px;
+  cursor:pointer;
+}
+.action.secondary{
+  background:#e0e0e0;
+  color:#000;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+  color:#777;
+}
+</style>
+</head>
+
+<body>
+
+<header>Masanja Gospel Melody</header>
+
+<!-- MENU -->
+<div id="menu" class="screen active">
+  <button class="menu-btn" onclick="openScreen('nyimbo')">
+    <span class="icon">🎶</span> Nyimbo
+  </button>
+
+  <button class="menu-btn" onclick="openScreen('kuhusu')">
+    <span class="icon">ℹ️</span> Kuhusu MGM
+  </button>
+
+  <button class="menu-btn" onclick="openScreen('matangazo')">
+    <span class="icon">📢</span> Matangazo MGM
+  </button>
+
+  <button class="menu-btn" onclick="openScreen('token')">
+    <span class="icon">🪙</span> Token ya MGM
+  </button>
+
+  <button class="menu-btn" onclick="openScreen('huduma')">
+    <span class="icon">🙏</span> Huduma za MGM
+  </button>
+</div>
+
+<!-- NYIMBO -->
+<div id="nyimbo" class="screen">
+  <div class="card">
+    <h2>🎶 Nyimbo</h2>
+    <p>Hapa utaona nyimbo za Masanja Gospel Melody.</p>
+    <p>(Audio & lyrics zitaongezwa)</p>
+  </div>
+  <button class="action secondary" onclick="openScreen('menu')">⬅ Rudi</button>
+</div>
+
+<!-- KUHUSU -->
+<div id="kuhusu" class="screen">
+  <div class="card">
+    <h2>ℹ️ Kuhusu MGM</h2>
+    <p>
+      Masanja Gospel Melody ni huduma ya injili
+      inayolenga kuhubiri Neno la Mungu kupitia
+      muziki, sifa, ibada, na mafundisho.
+    </p>
+  </div>
+  <button class="action secondary" onclick="openScreen('menu')">⬅ Rudi</button>
+</div>
+
+<!-- MATANGAZO -->
+<div id="matangazo" class="screen">
+  <div class="card">
+    <h2>📢 Matangazo MGM</h2>
+    <ul>
+      <li>Tamasha la Injili</li>
+      <li>Mikutano ya Maombi</li>
+      <li>Semina za Kiroho</li>
+    </ul>
+  </div>
+  <button class="action secondary" onclick="openScreen('menu')">⬅ Rudi</button>
+</div>
+
+<!-- TOKEN -->
+<div id="token" class="screen">
+  <div class="card">
+    <h2>🪙 Token ya MGM</h2>
+    <p>
+      MGM Token ni token ya msaada kwa huduma ya
+      Masanja Gospel Melody. Inalenga kuimarisha
+      jamii, uwazi, na kusaidia miradi ya injili.
+    </p>
+    <button class="action" onclick="window.open('https://t.me/WEKA_LINK_YAKO')">
+      💬 Jiunge Telegram
+    </button>
+  </div>
+  <button class="action secondary" onclick="openScreen('menu')">⬅ Rudi</button>
+</div>
+
+<!-- HUDUMA -->
+<div id="huduma" class="screen">
+  <div class="card">
+    <h2>🙏 Huduma za MGM</h2>
+    <ul>
+      <li>Maombi</li>
+      <li>Sifa & Ibada</li>
+      <li>Mahubiri</li>
+      <li>Ushauri wa Kiroho</li>
+    </ul>
+  </div>
+  <button class="action secondary" onclick="openScreen('menu')">⬅ Rudi</button>
+</div>
+
+<footer>
+© Masanja Gospel Melody
+</footer>
+
+<script>
+function openScreen(id){
+  document.querySelectorAll('.screen')
+    .forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
